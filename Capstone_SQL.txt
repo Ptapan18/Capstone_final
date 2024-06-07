@@ -1,0 +1,34 @@
+--To join all five data sets into one
+
+SELECT *
+FROM INFYHistoricalDataFinal
+JOIN BSESensex30HistoricalDataFinal ON INFYHistoricalDataFinal.Date = BSESensex30HistoricalDataFinal.Date
+JOIN India_government_indicies_Final ON INFYHistoricalDataFinal.date = India_government_indicies_Final.date
+JOIN Nifty50HistoricalDataFinal ON INFYHistoricalDataFinal.date = Nifty50HistoricalDataFinal.Date
+JOIN USD_INRHistoricalDataFinal ON INFYHistoricalDataFinal.date = USD_INRHistoricalDataFinal.date;
+
+--To remove unnecessary columns 
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'info_vol.';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'info_change_%';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'sensex_vol.';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'sensex_change_%';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'nifty_vol.';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'nifty_change_%';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'INR_vol.';
+
+ALTER TABLE INFYHistoricalDataFinal
+DROP COLUMN 'INR_change_%';
